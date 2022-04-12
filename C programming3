@@ -1,0 +1,26 @@
+#include <stdio.h>
+int main(void)
+{
+	int ft;                                                          // 정수를 저장하는 변수 설정
+	double cm, in, ex;                                               // 유리수를 저장하는 변수 설정
+
+	printf("키를 입력하시오:");                                      // 입력 안내 메시지
+	scanf("%lf", &cm);                                               // double형의 실수로 받는다.
+
+	ft = cm / 30.48;                                                 // cm를 feet로 변환
+	ex = cm - ft*30.48;
+	in = ex / 2.54;                                                  // inch 값으로 연산
+
+	printf("%dcm는 %d피트 %lf인치입니다.\n", (int)cm, ft, in);       // int형으로 변환
+
+	printf("키를 입력하시오(피트):");                                // 입력 안내 메시지
+	scanf("%d", &ft);                                                // double형의 실수로 받는다.
+
+	printf("키를 입력하시오(인치):");                                // 입력 안내 메시지
+	scanf("%lf", &in);                                               // double형의 실수로 받는다.
+
+	cm = ft * 30.48 + in * 2.54;                                     // feet와 inch를 cm로 변환
+	printf("%d피트 %lf인치는 %lfcm입니다.\n", ft, in, cm);           // cm로 변환된 값을 출력
+
+	return 0;
+}
