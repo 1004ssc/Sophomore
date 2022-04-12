@@ -1,0 +1,71 @@
+#include<stdio.h>
+
+int bin[100];
+int n = 0;
+
+void system(int num, int sys)
+{
+	int k;
+	if (sys == 2)
+	{
+		bin[n] = num % 2;
+		if (num == 1)
+		{
+			for (k = 99; k > -1; k--)
+			{
+				if (bin[k] > -1)
+					printf("%d", bin[k]);
+			}
+
+			for (k = 0; k < 100; k++)
+				bin[k] = -1;
+			printf("(2)\n");
+			n = 0;
+			return;
+		}
+		n++;
+		system(num / 2, sys);
+	}
+
+	else if (sys == 3)
+	{
+		bin[n] = num % 3;
+		if (num < 3)
+		{
+			for (k = 99; k > -1; k--)
+			{
+				if (bin[k] > -1)
+					printf("%d", bin[k]);
+			}
+
+			for (k = 0; k < 100; k++)
+				bin[k] = -1;
+			printf("(3)\n");
+			n = 0;
+			return;
+		}
+		n++;
+		system(num / 3, sys);
+	}
+}
+
+int main()
+{
+	int num;
+	int sys = 0;
+	int i, j;
+
+	for (i = 0; i < 100; i++)
+		bin[i] = -1;
+
+	do
+	{
+		printf("변환할 십진수를 입력하시오 : ");
+		scanf("%d", &num);
+
+		printf("몇진수로 변환하시겠습니까?(2: 2진수, 3: 3진수, 0: 종료) ");
+		scanf("%d", &sys);
+
+		system(num, sys);
+	} while (sys != 0);
+}
