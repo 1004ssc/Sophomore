@@ -1,0 +1,57 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+int baseball1(int a, int b, int c, int d)
+{
+	int number = 0;
+	if (a == c)
+		number++;
+	if (b == d)
+		number++;
+	return number;
+}
+
+int baseball2(int e, int f, int g, int h)
+{
+	int number2 = 0;
+	if (e == h)
+		number2++;
+	if (f == g)
+		number2++;
+	return number2;
+}
+
+int main()
+{
+	int first = 0;
+	int second = 0;
+	int answer = 0;
+	int answer2 = 0;
+	int strike = 0;
+	int ball = 0;
+
+	srand((unsigned)time(NULL));
+
+	answer = rand() % 10;
+	
+	do 
+	{
+		answer2 = rand() % 10;
+	} while (answer == answer2);
+
+	printf("2018034111 신승철\n");
+	printf("정답 : %d, %d\n", answer, answer2);
+
+
+	while (1)
+	{
+		printf("숫자를 입력하세요 : ");
+		scanf_s("%d", &first);
+		scanf_s("%d", &second);
+		strike = baseball1(first, second, answer, answer2);
+		ball = baseball2(first, second, answer, answer2);
+		printf("%d strike, %d ball\n", strike, ball);
+	}
+	return 0;
+}
