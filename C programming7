@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+void swap(int *n1, int *n2)
+{
+	int i;
+	i = *n1;
+	*n1 = *n2;
+	*n2 = i;	//포인터를 사용해서 주소값을 서로 바꿔준다.
+}
+
+void plusminus(int n1, int n2, int *result1, int *result2) // 합과 차를 나타내주는 함수
+{
+	*result1 = n1 + n2;
+	*result2 = n1 - n2;
+}
+
+int main()
+{
+	int a, b;
+	int c = 0;
+	int d = 0;
+	scanf_s("%d %d", &a, &b);
+	printf("n1 = %d, n2 = %d\n", a, b);
+	plusminus(a, b, &c, &d);			//합과 차를 받는문장
+	printf("sum : %d\nsubtraction : %d\n", c, d);	
+	printf("-----swap함수 후-----\n");
+	swap(&a, &b);					//값을 서로 바꿔주는 문장
+	printf("n1 = %d, n2 = %d\n", a, b);
+}
