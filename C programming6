@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+void transpose(int a[][3], int b[][3])	//함수 설정
+{
+	int i, j;
+	for (i = 0; i < 3; i++)		//행과 열을 바꿔주는 단계
+	{
+		for (j = 0; j < 3; j++)
+		{
+			b[j][i] = a[i][j];
+		}
+	}
+	printf("transposed matrix\n");
+	printf(" %d %d %d\n %d %d %d\n %d %d %d\n", b[0][0], b[0][1], b[0][2], b[1][0], b[1][1], b[1][2], b[2][0], b[2][1], b[2][2]);
+}
+
+int main()
+{
+	int a[3][3] = { 1,2,3,4,5,6,7,8,9 };	//변수 초기값 설정
+	int b[3][3] = { 0 };
+
+	printf("Original Matrix\n");
+	printf(" %d %d %d\n %d %d %d\n %d %d %d\n\n", a[0][0], a[0][1], a[0][2], a[1][0], a[1][1], a[1][2], a[2][0], a[2][1], a[2][2]);
+	transpose(a, b);	//함수를 불러오는 단계
+}
